@@ -1,5 +1,7 @@
 package com.austin.sortingalgorithms;
 
+import java.util.Arrays;
+
 public class CountingSort {
 
     public int[] countingSort(int[] arr) {
@@ -20,9 +22,9 @@ public class CountingSort {
 
         // then subtract 1 from all elements of occurences
         // this is because Java is indexed at 0, and our array is indexed beginning with 1
-        for (int i = 0; i < indices.length; i++) {
-            indices[i]--;
-        }
+//        for (int i = 0; i < indices.length; i++) {
+//            indices[i]--;
+//        }
 
         int[] sorted = new int[arr.length];
 
@@ -44,8 +46,9 @@ public class CountingSort {
         // [1, 1, 2, 3]
         // [1, 1, 2, 3]
         for (int i = arr.length - 1; i >= 0; i--) {
-            sorted[indices[arr[i]]] = arr[i];
+            sorted[indices[arr[i]] - 1] = arr[i];
             indices[arr[i]]--;
+            System.out.println(Arrays.toString(sorted));
         }
         return sorted;
     }

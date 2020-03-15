@@ -1,5 +1,7 @@
 package com.austin.sortingalgorithms;
 
+import java.util.Arrays;
+
 public class QuickSort {
     /**
      * com.austin.sorting.QuickSort using the last element as the pivot.
@@ -83,6 +85,7 @@ public class QuickSort {
                 i++;
             }
             while (arr[i] < x);
+
             do {
                 j--;
             }

@@ -86,7 +86,7 @@ public class Heap {
             largest = i;
         }
 
-        // if right element is bigger than parent, remember it
+        // if right element is bigger than largest, remember it
         if (right < heapSize && array[right] > array[largest]) {
             largest = right;
         }
