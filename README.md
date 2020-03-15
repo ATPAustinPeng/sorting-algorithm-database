@@ -1,4 +1,4 @@
-#sorting-algorithm-database
+# sorting-algorithm-database
 
 Below is a list of sorting algorithms I will be covering (in Java programming language).
 
@@ -28,12 +28,12 @@ Below is a list of sorting algorithms I will be covering (in Java programming la
 - **Class**: whether the algorithm is comparison or non-comparison sorting
  
 Algorithm      | O(n) Worst Case  | O(n) Avg Case    | O(n) Best Case   | Space Complexity | Stable | Adaptive | Class
----------------| ---------------- | ---------------- | ---------------- | ---------------- | ------ | -------- | ------
-Bubble Sort    | 
-Selection Sort | 
-Insertion Sort | 
-Merge Sort     | 
-Quick Sort     | 
+---------------| ---------------- | ---------------- | ---------------- | ---------------- | ------ | -------- | --------------
+Bubble Sort    | O(n<sup>2</sup>) | O(n<sup>2</sup>) | O(n)             | O(1)             | Yes    | Yes      | Comparison
+Selection Sort | O(n<sup>2</sup>) | O(n<sup>2</sup>) | O(n<sup>2</sup>) | O(1)             | Yes    | No       | Comparison
+Insertion Sort | O(n<sup>2</sup>) | O(n<sup>2</sup>) | O(n)             | O(1)             | Yes    | Yes      | Comparison
+Merge Sort     | O(nlog(n))       | O(nlog(n))       | O(nlog(n))       | O(n)             | Yes    | No       | Comparison
+Quick Sort     | O(n<sup>2</sup>) | O(nlog(n))       | O(nlog(n))       | O(log(n))        | No     | No       | Comparison
 Heap Sort      | 
 Counting Sort  | 
 Radix Sort     | 
@@ -45,18 +45,5 @@ Cubesort       |
 
 ## A Little More In-Depth
 
-Here, I will be describing how each method sorts and other assumptions about the algorithm.
-
-Bubble Sort
-Selection Sort
-Insertion Sort
-Merge Sort
-Quick Sort
-Heap Sort
-Counting Sort
-Radix Sort
-Bucket Sort
-Shell Sort
-Tree Sort
-Timsort
-Cubesort
+Here, I will be describing how each algorithm sorts, explaining the best and worst case inputs, 
+and sharing other important ideas about each algorithm.
