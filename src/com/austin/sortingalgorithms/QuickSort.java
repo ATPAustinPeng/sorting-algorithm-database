@@ -1,7 +1,5 @@
 package com.austin.sortingalgorithms;
 
-import java.util.Arrays;
-
 public class QuickSort {
     /**
      * com.austin.sorting.QuickSort using the last element as the pivot.
@@ -13,21 +11,19 @@ public class QuickSort {
      */
     public void quickSort(int[] arr, int p, int r) {
         if (p < r) {
-//            int q = partition(arr, p, r);
-//            quickSort(arr, p, q - 1);
-//            quickSort(arr, q + 1, r);
-
-            int q = hoarePartition(arr, p, r);
-            quickSort(arr, p, q);
-            quickSort(arr, q + 1, r);
+            int q = partition(arr, p, r);
 //            int q = medianOfThreePartition(arr, p, r);
-
+            quickSort(arr, p, q - 1);
+            quickSort(arr, q + 1, r);
+//
+//            int q = hoarePartition(arr, p, r);
+//            quickSort(arr, p, q);
+//            quickSort(arr, q + 1, r);
         }
     }
 
     /**
-     * com.austin.sorting.QuickSort which implements a while loop to recursively call com.austin.sorting.QuickSort on the second half of the partition
-     *
+     * Implements a while loop to recursively call quickSort on the second half of the partitioned array
      * @param arr the array being sorted
      * @param p   the beginning index of the array/subarray being sorted
      * @param r   the end index of the array/subarray being sorted (also the used as the pivot element)

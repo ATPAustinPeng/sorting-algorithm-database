@@ -1,6 +1,6 @@
 package com.austin.sortingalgorithms;
 
-import com.austin.heap.Heap;
+import com.austin.helperclasses.Heap;
 
 public class HeapSort {
     public Heap heapSort(int[] arr) {

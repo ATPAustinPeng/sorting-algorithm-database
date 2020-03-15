@@ -54,7 +54,7 @@ Cubesort       |
 Here, I will be describing how each algorithm sorts, explaining the best and worst case inputs, 
 and sharing other important ideas about each algorithm.
 
-Note: All the information I cover here are based off my implentation of each sorting algorithm. 
+Note: All the information I cover here are based off my implementation of each sorting algorithm. 
 There are too many variations of each sorting algorithm and I cannot possibly cover them all.
 
 ### Bubble Sort
@@ -62,16 +62,91 @@ There are too many variations of each sorting algorithm and I cannot possibly co
     * Loops through the array, comparing the current element to the next.
     * If the current element is greater than the next, swap the two elements.
     * Sorts from the end of the array to the front.
-* **Best Case Situation**
+* **Best Case Scenario**
     * If the given array is in ascending order.
-* **Worst Case Situation**
+* **Worst Case Scenario**
     * If the given array is in descending order.
     
 ### Selection Sort
-##### How It Works
-* Finds the minimum value in the array and inserts it to the front.
-* Sorts from the front of the array to the end.
-##### Best Case Situation
-* N/A
-##### Worst Case Situation
-* If the given array is in descending order.
+* **How It Works**
+    * Finds the minimum value in the array and swaps it with the first unsorted element from the front of the array.
+    * Sorts from the front of the array to the end.
+* **Best Case Scenario**
+    * If the given array is in ascending order.
+* **Worst Case Scenario**
+    * If the given array is in descending order.
+    
+### Insertion Sort
+* **How It Works**
+    * Loops through the array, taking the each element and placing it into its sorted position.
+    * Sorts from the front of the array to the end.
+* **Best Case Scenario**
+    * If the given array is in ascending order.
+* **Worst Case Scenario**
+    * If the given array is in descending order.
+
+### Merge Sort
+* **How It Works**
+    * Splits the given array down into arrays of size 1 (which are sorted by definition)
+    * Combines the split arrays together by looking at each array as if it were a stack of cards.
+    * It picks the smaller of the elements among 2 split arrays and puts it into the sorted array.
+* **Best Case Scenario**
+    * If the given array is in ascending order.
+* **Worst Case Scenario**
+    * If each element left branch of the split arrays is larger than its respective element in the right branch of the split arrays.
+    * This is the worst case because it causes the most comparisons during the sort.
+    * An example is this array [4,0,6,2,5,1,7,3]
+    
+### Quick Sort
+* **How It Works**
+    * Partitions the array/subarrays with a pivot (using Lomuto's, Hoare's, Median of Three, or other methods)
+    , placing elements larger than the pivot to the right of the pivot, and elements smaller than the pivot to the left of the pivot.
+    * Repeats this partitioning and pivot step for every subarray until the subarray is size 1 (which is sorted by definition).
+* **Best Case Scenario**
+    * If the pivot pick is always the middle or near the middle element of the array/subarray.
+* **Worst Case Scenario**
+    * If the pivot picked is always the smallest or largest element of the array/subarray.
+
+### Heap Sort
+* **How It Works**
+    * Uses the max heap property of a heap to sort the array.
+    * Swaps the first element of the heap with the last element.
+    * Then max heapify the heap, excluding the last element of the heap.
+    * Repeat for all elements in the heap.
+    Sorts the array from left to right, down to top (with respect to the heap)
+* **Best Case Scenario**
+    * N/A
+* **Worst Case Scenario**
+    * N/A
+
+### Counting Sort
+* **Assumptions**
+    * Elements in the array are non-negative integers.
+* **How It Works**
+    * Counts the occurrences of each distinct element in the array.
+    * Store the cumulative sum of elements into the array, meaning the element at each index is equal to the sum of 
+    itself and all the preceding elements.
+    * Loop through the original array from the last index to the first. 
+    * Using the array containing cumulative sum of elements, place each element into the right location.
+* **Best Case Scenario**
+    * When maximum value of the elements in the given array is small.
+* **Worst Case Scenario**
+    * When the maximum value of the elements in the given array is large.
+
+### Radix Sort
+* **Assumptions**
+    * Elements in the array are non-negative integers.
+* **How It Works**
+    * Uses a stable sorting algorithm (I used counting sort) to sort the elements in the given array by the ones digit, tens digit, and so on.
+* **Best Case Scenario**
+    * When small digit numbers (base 2, base 10, etc.) are used, the intermediate sorting algorithm (counting sort) doesn't use too much space.
+* **Worst Case Scenario**
+    * When large digit numbers (32-bit, 64-bit) are used, the intermediate sorting algorithm (counting sort) takes a lot of space
+
+### Bucket Sort
+* **How It Works**
+    *
+* **Best Case Scenario**
+    *
+* **Worst Case Scenario**
+    *

@@ -1,9 +1,6 @@
+package com.austin.testingalgorithms;
+
 public class TestCaseGenerator {
-
-    public TestCaseGenerator() {
-
-    }
-
     /**
      * Fills an int array of the specified size with elements ranging from [-range / 2, range / 2)
      * @param size the size of the int array test case

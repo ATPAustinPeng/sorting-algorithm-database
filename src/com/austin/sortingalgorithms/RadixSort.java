@@ -10,6 +10,11 @@ public class RadixSort {
         }
     }
 
+    /**
+     * Counting sort based on the place (ones place, tens place, etc.)
+     * @param arr the array being sorted
+     * @param place the digit position being sorted
+     */
     public void digitCountingSort(int[] arr, int place) {
         // find max digit for the specified place
         int maxDigit = 0;

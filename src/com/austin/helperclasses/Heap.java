@@ -1,4 +1,4 @@
-package com.austin.heap;
+package com.austin.helperclasses;
 
 // Note: all methods are indexed from 0
 public class Heap {
@@ -58,14 +58,29 @@ public class Heap {
         heapSize--;
     }
 
+    /**
+     * Gets the index of the current element's parent.
+     * @param index the index of the element needing to find the parent of
+     * @return the index of the current element's parent
+     */
     public int getParent(int index) {
         return index / 2 - 1;
     }
 
+    /**
+     * Gets the index of the current element's left element
+     * @param index the index of the element needing to find the left child of
+     * @return the index of the current element's left element
+     */
     public int getLeft(int index) {
         return 2 * index + 1;
     }
 
+    /**
+     * Gets the index of the current element's right element
+     * @param index the index of the element needing to find the right child of
+     * @return the index of the current element's right element
+     */
     public int getRight(int index) {
         return 2 * index + 2;
     }
@@ -91,7 +106,7 @@ public class Heap {
             largest = right;
         }
 
-        // if the index of the largest value is not the index of i, swap the elements at i and largest
+        // if the largest element is not the parent, swap the parent and the child element
         if (largest != i) {
             swap(i, largest);
             maxHeapify(largest);
@@ -109,6 +124,9 @@ public class Heap {
         array[indexB] = temp;
     }
 
+    /**
+     * Makes the heap into a max heap, where every parent element is larger than its child element.
+     */
     public void buildMaxHeap() {
         heapSize = array.length;
         for (int i = (array.length - 2) / 2; i >= 0; i--) {
@@ -116,6 +134,11 @@ public class Heap {
         }
     }
 
+    /**
+     * Sorts the array by swapping the first element (the largest), with the last element (not necessarily the smallest).
+     * Then max heapify the heap, excluding the last element.
+     * Repeat this for every single element in the heap.
+     */
     public void heapSort() {
         buildMaxHeap();
         for (int i = array.length - 1; i > 0; i--) {
@@ -124,41 +147,5 @@ public class Heap {
             maxHeapify(0);
         }
         heapSize = array.length;
-    }
-
-    public int getMaximum() {
-        return array[0];
-    }
-
-    public int extractMaximum() {
-        if (heapSize < 1) {
-            System.out.println("ERROR: Heap Underflow (size < 1)");
-            // TODO: if the error is printed out, the below code will still run... I need to throw an exception
-        }
-
-        int max = array[0];
-        array[0] = array[heapSize - 1];
-        remove(heapSize - 1);
-        maxHeapify(0);
-        return max;
-    }
-
-    public void heapIncreaseKey(int index, int key) {
-        if (key < array[index]) {
-            System.out.println("ERROR: New key has smaller value than current key.");
-            return;
-        }
-
-        array[index] = key;
-        while (index > 0 && array[getParent(index)] < array[index]) {
-            swap(index, getParent(index));
-            index = getParent(index);
-        }
-    }
-
-    public void maxHeapInsert(int key) {
-        heapSize++;
-        add(Integer.MIN_VALUE);
-        heapIncreaseKey(heapSize, key);
     }
 }
