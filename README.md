@@ -33,22 +33,23 @@ Note: d = the max value in the array of digits (aka bits used to represent the m
 Note: b = the number of buckets
 
  
-Algorithm      | O(n) Worst Case  | O(n) Avg Case    | O(n) Best Case   | Space Complexity | Stable | Adaptive | Class
----------------| ---------------- | ---------------- | ---------------- | ---------------- | ------ | -------- | --------------
-Bubble Sort    | O(n<sup>2</sup>) | O(n<sup>2</sup>) | O(n)             | O(1)             | Yes    | Yes      | Comparison
-Selection Sort | O(n<sup>2</sup>) | O(n<sup>2</sup>) | O(n<sup>2</sup>) | O(1)             | Yes    | No       | Comparison
-Insertion Sort | O(n<sup>2</sup>) | O(n<sup>2</sup>) | O(n)             | O(1)             | Yes    | Yes      | Comparison
-Merge Sort     | O(nlog(n))       | O(nlog(n))       | O(nlog(n))       | O(n)             | Yes    | No       | Comparison
-Quick Sort     | O(n<sup>2</sup>) | O(nlog(n))       | O(nlog(n))       | O(log(n))        | No     | No       | Comparison
-Heap Sort      | O(nlog(n))       | O(nlog(n))       | O(nlog(n))       | O(1)             | No     | No       | Comparison
-Counting Sort  | O(n + k)         | O(n + k)         | O(n + k)         | O(n + k)         | Yes    | No       | Non-comparison
-Radix Sort     | O(dn)            | O(dn)            | O(dn)            | O(n + d)         | Yes    | No       | Non-comparison
-Bucket Sort    | O(n<sup>2</sup>) | O(n + b)         | O(n + b)         | O(bn)            | Yes    | No       | Comparison
-Shell Sort     |  
+Algorithm      | O(n) Worst Case    | O(n) Avg Case    | O(n) Best Case   | Space Complexity | Stable | Adaptive | Class
+---------------| ------------------ | ---------------- | ---------------- | ---------------- | ------ | -------- | --------------
+Bubble Sort    | O(n<sup>2</sup>)   | O(n<sup>2</sup>) | O(n)             | O(1)             | Yes    | Yes      | Comparison
+Selection Sort | O(n<sup>2</sup>)   | O(n<sup>2</sup>) | O(n<sup>2</sup>) | O(1)             | Yes    | No       | Comparison
+Insertion Sort | O(n<sup>2</sup>)   | O(n<sup>2</sup>) | O(n)             | O(1)             | Yes    | Yes      | Comparison
+Merge Sort     | O(nlog(n))         | O(nlog(n))       | O(nlog(n))       | O(n)             | Yes    | No       | Comparison
+Quick Sort     | O(n<sup>2</sup>)   | O(nlog(n))       | O(nlog(n))       | O(log(n))        | No     | No       | Comparison
+Heap Sort      | O(nlog(n))         | O(nlog(n))       | O(nlog(n))       | O(1)             | No     | No       | Comparison
+Counting Sort  | O(n + k)           | O(n + k)         | O(n + k)         | O(n + k)         | Yes    | No       | Non-comparison
+Radix Sort     | O(dn)              | O(dn)            | O(dn)            | O(n + d)         | Yes    | No       | Non-comparison
+Bucket Sort    | O(n<sup>2</sup>)   | O(n + b)         | O(n + b)         | O(bn)            | Yes    | No       | Comparison
+Shell Sort     | O(n<sup>2</sup>)** | O(nlog(n))       | O(nlog(n))       | O(n)             | No     | Yes      | Comparison
 Tree Sort      | 
 Timsort        | 
 Cubesort       | 
 
+**Shell Sort worst case runtime depends on the increments used. Using Shell's original increment the worst case is O(n<sup>2</sup>).
 
 ## A Little More In-Depth
 
@@ -56,7 +57,8 @@ Here, I will be describing how each algorithm sorts, explaining the best and wor
 and sharing other important ideas about each algorithm.
 
 Note: All the information I cover here are based off my implementation of each sorting algorithm. 
-There are too many variations of each sorting algorithm and I cannot possibly cover them all.
+There are too many variations of each sorting algorithm and I cannot possibly cover them all. 
+Additionally, I have only implemented the algorithms to sort integers.
 
 ### Bubble Sort
 * **How It Works**
@@ -144,10 +146,25 @@ There are too many variations of each sorting algorithm and I cannot possibly co
 * **Worst Case Scenario**
     * When large digit numbers (32-bit, 64-bit) are used, the intermediate sorting algorithm (counting sort) takes a lot of space
 
-### Bucket Sort
+### Bucket Sort (aka Bin Sort)
+* **Assumptions**
+    * Elements in the array are non-negative integers.
 * **How It Works**
-    *
+    * Distribute elements of an array into a number of buckets.
+    * Each bucket is sorted individually using a sorting algorithm (preferably a stable sort).
+    * Then each sorted bucket is concatenated into one single array of elements.
 * **Best Case Scenario**
-    *
+    * When the input is uniformly distributed and elements in each bucket are in ascending order.
 * **Worst Case Scenario**
-    *
+    * When the elements in the input array are not uniformly distributed over a range, causing a bucket to fill 
+    significantly more than others, and causing insertion sort to run with O(n<sup>2</sup>)
+    
+### Shell Sort (aka Diminishing Increment Sort)
+* **How It Works**
+    * Break the given array into increments using Shell's original sequence (n / 2, n / 4 ... 1), or any other increment method,
+    where n is the size of the array.
+    * Sorts elements on the given increments with insertion sort.
+* **Best Case Scenario**
+    * When the array is already in ascending order (least comparisons).
+* **Worst Case Scenario**
+    * When the array is in descending order (insertion sort worst case takes O(n<sup>2</sup>)).

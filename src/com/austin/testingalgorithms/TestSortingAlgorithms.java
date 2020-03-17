@@ -6,7 +6,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
-import java.util.stream.IntStream;
 
 public class TestSortingAlgorithms {
     public static void main(String[] args) {
@@ -21,6 +20,7 @@ public class TestSortingAlgorithms {
         CountingSort countingSort = new CountingSort();
         RadixSort radixSort = new RadixSort();
         BucketSort bucketSort = new BucketSort();
+        ShellSort shellSort = new ShellSort();
 
         for (int i = 0; i < 5; i++) {
             int[] testCase1 = caseGenerator.generateCase(10, -100, 100);
@@ -46,7 +46,11 @@ public class TestSortingAlgorithms {
 
             List<Integer> testCase5 = Arrays.stream(testCase3).boxed().collect(Collectors.toList());
             System.out.println(bucketSort.bucketSort((ArrayList<Integer>) testCase5));
+
+            int[] testCase6 = new int[testCase3.length];
+            System.arraycopy(testCase3,0, testCase6, 0, testCase3.length);
+            shellSort.shellSort(testCase6);
+            System.out.println(Arrays.toString(testCase6));
         }
     }
-
 }
