@@ -30,6 +30,7 @@ Below is a list of sorting algorithms I will be covering (in Java programming la
 
 Note: k = the max value in the array
 Note: d = the max value in the array of digits (aka bits used to represent the max value)
+Note: b = the number of buckets
 
  
 Algorithm      | O(n) Worst Case  | O(n) Avg Case    | O(n) Best Case   | Space Complexity | Stable | Adaptive | Class
@@ -42,7 +43,7 @@ Quick Sort     | O(n<sup>2</sup>) | O(nlog(n))       | O(nlog(n))       | O(log(
 Heap Sort      | O(nlog(n))       | O(nlog(n))       | O(nlog(n))       | O(1)             | No     | No       | Comparison
 Counting Sort  | O(n + k)         | O(n + k)         | O(n + k)         | O(n + k)         | Yes    | No       | Non-comparison
 Radix Sort     | O(dn)            | O(dn)            | O(dn)            | O(n + d)         | Yes    | No       | Non-comparison
-Bucket Sort    | 
+Bucket Sort    | O(n<sup>2</sup>) | O(n + b)         | O(n + b)         | O(bn)            | Yes    | No       | Comparison
 Shell Sort     |  
 Tree Sort      | 
 Timsort        | 

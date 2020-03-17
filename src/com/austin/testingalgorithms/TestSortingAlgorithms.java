@@ -1,7 +1,12 @@
 package com.austin.testingalgorithms;
 
 import com.austin.sortingalgorithms.*;
+
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 public class TestSortingAlgorithms {
     public static void main(String[] args) {
@@ -15,6 +20,7 @@ public class TestSortingAlgorithms {
         HeapSort heapSort = new HeapSort();
         CountingSort countingSort = new CountingSort();
         RadixSort radixSort = new RadixSort();
+        BucketSort bucketSort = new BucketSort();
 
         for (int i = 0; i < 5; i++) {
             int[] testCase1 = caseGenerator.generateCase(10, -100, 100);
@@ -32,10 +38,14 @@ public class TestSortingAlgorithms {
 
             int[] testCase3 = caseGenerator.generateCase(10,0,999);
             System.out.println(Arrays.toString(countingSort.countingSort(testCase3)));
+
             int[] testCase4 = new int[testCase3.length];
             System.arraycopy(testCase3,0, testCase4, 0, testCase3.length);
             radixSort.radixSort(testCase4);
             System.out.println(Arrays.toString(testCase4));
+
+            List<Integer> testCase5 = Arrays.stream(testCase3).boxed().collect(Collectors.toList());
+            System.out.println(bucketSort.bucketSort((ArrayList<Integer>) testCase5));
         }
     }
 
