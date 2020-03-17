@@ -49,7 +49,7 @@ Tree Sort      |
 Timsort        | 
 Cubesort       | 
 
-**Shell Sort worst case runtime depends on the increments used. Using Shell's original increment the worst case is O(n<sup>2</sup>).
+**Shell Sort worst case runtime depends on the increments used. Using Shell's original increment (n / 2, n / 4 ... 1) the worst case is O(n<sup>2</sup>).
 
 ## A Little More In-Depth
 
@@ -98,7 +98,7 @@ Additionally, I have only implemented the algorithms to sort integers.
 * **Worst Case Scenario**
     * If each element left branch of the split arrays is larger than its respective element in the right branch of the split arrays.
     * This is the worst case because it causes the most comparisons during the sort.
-    * An example is this array [4,0,6,2,5,1,7,3]
+    * An example is this array ```[4,0,6,2,5,1,7,3]```
     
 ### Quick Sort
 * **How It Works**
