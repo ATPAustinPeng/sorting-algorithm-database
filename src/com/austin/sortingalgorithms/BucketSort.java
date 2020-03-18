@@ -61,7 +61,7 @@ public class BucketSort {
     public int mapElementWithNumOfBuckets(int element, int max, int numOfBuckets) {
         // multiply by numOfBuckets - 1 because Java indexes starting with 0
         // and numOfBuckets counts buckets starting from 1
-        return (int) ( (double) element / max * numOfBuckets - 1);
+        return (int) ( (double) element / max * (numOfBuckets - 1));
     }
 
     /**

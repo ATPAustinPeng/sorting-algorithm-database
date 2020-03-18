@@ -21,36 +21,47 @@ public class TestSortingAlgorithms {
         RadixSort radixSort = new RadixSort();
         BucketSort bucketSort = new BucketSort();
         ShellSort shellSort = new ShellSort();
+        TimSort timSort = new TimSort();
 
-        for (int i = 0; i < 5; i++) {
-            int[] testCase1 = caseGenerator.generateCase(10, -100, 100);
-            System.out.println(Arrays.toString(bubbleSort.bubbleSort(testCase1)));
-            System.out.println(Arrays.toString(selectionSort.selectionSort(testCase1)));
-            System.out.println(Arrays.toString(insertionSort.insertionSort(testCase1)));
-            System.out.println(Arrays.toString(mergeSort.mergeSort(testCase1)));
+        System.out.println("Test case consists of both positive and negative integers.");
 
-            int[] testCase2 = new int[testCase1.length];
-            System.arraycopy(testCase1,0, testCase2, 0, testCase1.length);
-            quickSort.quickSort(testCase2, 0, testCase2.length - 1);
-            System.out.println(Arrays.toString(testCase2));
+        int[] testCase1 = caseGenerator.generateCase(10, -100, 100);
+        System.out.printf("%-17s" + Arrays.toString(bubbleSort.bubbleSort(testCase1)) + "\n", "Bubble Sort: ");
+        System.out.printf("%-17s" + Arrays.toString(selectionSort.selectionSort(testCase1)) + "\n", "Selection Sort: ");
+        System.out.printf("%-17s" + Arrays.toString(insertionSort.insertionSort(testCase1)) + "\n", "Insertion Sort: ");
+        System.out.printf("%-17s" + Arrays.toString(mergeSort.mergeSort(testCase1)) + "\n", "Merge Sort: ");
 
-            System.out.println(heapSort.heapSort(testCase1));
+        int[] copyTestCase1 = new int[testCase1.length];
+        System.arraycopy(testCase1, 0, copyTestCase1, 0, testCase1.length);
+        quickSort.quickSort(copyTestCase1, 0, copyTestCase1.length - 1);
+        System.out.printf("%-17s" + Arrays.toString(copyTestCase1) + "\n", "Quick Sort: ");
 
-            int[] testCase3 = caseGenerator.generateCase(10,0,999);
-            System.out.println(Arrays.toString(countingSort.countingSort(testCase3)));
+        System.out.printf("%-17s" + heapSort.heapSort(testCase1) + "\n", "Heap Sort: ");
+        System.out.println("\n");
 
-            int[] testCase4 = new int[testCase3.length];
-            System.arraycopy(testCase3,0, testCase4, 0, testCase3.length);
-            radixSort.radixSort(testCase4);
-            System.out.println(Arrays.toString(testCase4));
 
-            List<Integer> testCase5 = Arrays.stream(testCase3).boxed().collect(Collectors.toList());
-            System.out.println(bucketSort.bucketSort((ArrayList<Integer>) testCase5));
+        System.out.println("Test case consists of only positive integers.");
 
-            int[] testCase6 = new int[testCase3.length];
-            System.arraycopy(testCase3,0, testCase6, 0, testCase3.length);
-            shellSort.shellSort(testCase6);
-            System.out.println(Arrays.toString(testCase6));
-        }
+        int[] testCase2 = caseGenerator.generateCase(10, 0, 999);
+        System.out.printf("%-17s" + Arrays.toString(countingSort.countingSort(testCase2)) + "\n", "Counting Sort: ");
+
+        int[] copyTestCase2 = new int[testCase2.length];
+        System.arraycopy(testCase2, 0, copyTestCase2, 0, testCase2.length);
+        radixSort.radixSort(copyTestCase2);
+        System.out.printf("%-17s" + Arrays.toString(copyTestCase2) + "\n", "Radix Sort: ");
+
+        List<Integer> anotherCopyTestCase2 = Arrays.stream(testCase2).boxed().collect(Collectors.toList());
+        System.out.printf("%-17s" + bucketSort.bucketSort((ArrayList<Integer>) anotherCopyTestCase2) + "\n", "Bucket Sort: ");
+
+
+        int[] oneMoreCopyTestCase2 = new int[testCase2.length];
+        System.arraycopy(testCase2, 0, oneMoreCopyTestCase2, 0, testCase2.length);
+        shellSort.shellSort(oneMoreCopyTestCase2);
+        System.out.printf("%-17s" + Arrays.toString(oneMoreCopyTestCase2) + "\n", "Shell Sort: ");
+
+        int[] lastCopyTestCase2 = new int[testCase2.length];
+        System.arraycopy(testCase2, 0, lastCopyTestCase2, 0, testCase2.length);
+        timSort.timSort(lastCopyTestCase2, 32);
+        System.out.printf("%-17s" + Arrays.toString(lastCopyTestCase2) + "\n", "Timsort: ");
     }
 }

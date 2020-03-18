@@ -3,18 +3,16 @@
 Below is a list of sorting algorithms I will be covering (in Java programming language).
 
 1. Bubble Sort
-2. Selection Sort
-3. Insertion Sort
-4. Merge Sort
-5. Quick Sort
-6. Heap Sort
-7. Counting Sort
-8. Radix Sort
-9. Bucket Sort
-10. Shell Sort
-11. Tree Sort
-12. Timsort
-13. Cubesort
+1. Selection Sort
+1. Insertion Sort
+1. Merge Sort
+1. Quick Sort
+1. Heap Sort
+1. Counting Sort
+1. Radix Sort
+1. Bucket Sort
+1. Shell Sort
+1. Timsort
 
 
 ## Basic Info On Each Sorting Algorithm
@@ -33,21 +31,20 @@ Note: d = the max value in the array of digits (aka bits used to represent the m
 Note: b = the number of buckets
 
  
-Algorithm      | O(n) Worst Case    | O(n) Avg Case    | O(n) Best Case   | Space Complexity | Stable | Adaptive | Class
----------------| ------------------ | ---------------- | ---------------- | ---------------- | ------ | -------- | --------------
-Bubble Sort    | O(n<sup>2</sup>)   | O(n<sup>2</sup>) | O(n)             | O(1)             | Yes    | Yes      | Comparison
-Selection Sort | O(n<sup>2</sup>)   | O(n<sup>2</sup>) | O(n<sup>2</sup>) | O(1)             | Yes    | No       | Comparison
-Insertion Sort | O(n<sup>2</sup>)   | O(n<sup>2</sup>) | O(n)             | O(1)             | Yes    | Yes      | Comparison
-Merge Sort     | O(nlog(n))         | O(nlog(n))       | O(nlog(n))       | O(n)             | Yes    | No       | Comparison
-Quick Sort     | O(n<sup>2</sup>)   | O(nlog(n))       | O(nlog(n))       | O(log(n))        | No     | No       | Comparison
-Heap Sort      | O(nlog(n))         | O(nlog(n))       | O(nlog(n))       | O(1)             | No     | No       | Comparison
-Counting Sort  | O(n + k)           | O(n + k)         | O(n + k)         | O(n + k)         | Yes    | No       | Non-comparison
-Radix Sort     | O(dn)              | O(dn)            | O(dn)            | O(n + d)         | Yes    | No       | Non-comparison
-Bucket Sort    | O(n<sup>2</sup>)   | O(n + b)         | O(n + b)         | O(bn)            | Yes    | No       | Comparison
-Shell Sort     | O(n<sup>2</sup>)** | O(nlog(n))       | O(nlog(n))       | O(n)             | No     | Yes      | Comparison
-Tree Sort      | 
-Timsort        | 
-Cubesort       | 
+Algorithm      | O(n) Worst Case    | O(n) Average Case | O(n) Best Case   | Space Complexity | Stable | Adaptive | Class
+---------------| ------------------ | ----------------- | ---------------- | ---------------- | ------ | -------- | --------------
+Bubble Sort    | O(n<sup>2</sup>)   | O(n<sup>2</sup>)  | O(n)             | O(1)             | Yes    | Yes      | Comparison
+Selection Sort | O(n<sup>2</sup>)   | O(n<sup>2</sup>)  | O(n<sup>2</sup>) | O(1)             | Yes    | No       | Comparison
+Insertion Sort | O(n<sup>2</sup>)   | O(n<sup>2</sup>)  | O(n)             | O(1)             | Yes    | Yes      | Comparison
+Merge Sort     | O(nlog(n))         | O(nlog(n))        | O(nlog(n))       | O(n)             | Yes    | No       | Comparison
+Quick Sort     | O(n<sup>2</sup>)   | O(nlog(n))        | O(nlog(n))       | O(log(n))        | No     | No       | Comparison
+Heap Sort      | O(nlog(n))         | O(nlog(n))        | O(nlog(n))       | O(1)             | No     | No       | Comparison
+Counting Sort  | O(n + k)           | O(n + k)          | O(n + k)         | O(n + k)         | Yes    | No       | Non-comparison
+Radix Sort     | O(dn)              | O(dn)             | O(dn)            | O(n + d)         | Yes    | No       | Non-comparison
+Bucket Sort    | O(n<sup>2</sup>)   | O(n + b)          | O(n + b)         | O(bn)            | Yes    | No       | Comparison
+Shell Sort     | O(n<sup>2</sup>)** | O(nlog(n))        | O(nlog(n))       | O(n)             | No     | Yes      | Comparison
+Timsort        | O(nlog(n))         | O(nlog(n))        | O(n)             | O(n)             | Yes    | Yes      | Comparison
+
 
 **Shell Sort worst case runtime depends on the increments used. Using Shell's original increment (n / 2, n / 4 ... 1) the worst case is O(n<sup>2</sup>).
 
@@ -66,27 +63,27 @@ Additionally, I have only implemented the algorithms to sort integers.
     * If the current element is greater than the next, swap the two elements.
     * Sorts from the end of the array to the front.
 * **Best Case Scenario**
-    * If the given array is in ascending order.
+    * When the given array is in ascending order.
 * **Worst Case Scenario**
-    * If the given array is in descending order.
+    * When the given array is in descending order.
     
 ### Selection Sort
 * **How It Works**
     * Finds the minimum value in the array and swaps it with the first unsorted element from the front of the array.
     * Sorts from the front of the array to the end.
 * **Best Case Scenario**
-    * If the given array is in ascending order.
+    * When the given array is in ascending order.
 * **Worst Case Scenario**
-    * If the given array is in descending order.
+    * When the given array is in descending order.
     
 ### Insertion Sort
 * **How It Works**
     * Loops through the array, taking the each element and placing it into its sorted position.
     * Sorts from the front of the array to the end.
 * **Best Case Scenario**
-    * If the given array is in ascending order.
+    * When the given array is in ascending order.
 * **Worst Case Scenario**
-    * If the given array is in descending order.
+    * When the given array is in descending order.
 
 ### Merge Sort
 * **How It Works**
@@ -94,9 +91,9 @@ Additionally, I have only implemented the algorithms to sort integers.
     * Combines the split arrays together by looking at each array as if it were a stack of cards.
     * It picks the smaller of the elements among 2 split arrays and puts it into the sorted array.
 * **Best Case Scenario**
-    * If the given array is in ascending order.
+    * When the given array is in ascending order.
 * **Worst Case Scenario**
-    * If each element left branch of the split arrays is larger than its respective element in the right branch of the split arrays.
+    * When each element left branch of the split arrays is larger than its respective element in the right branch of the split arrays.
     * This is the worst case because it causes the most comparisons during the sort.
     * An example is this array ```[4,0,6,2,5,1,7,3]```
     
@@ -106,9 +103,9 @@ Additionally, I have only implemented the algorithms to sort integers.
     , placing elements larger than the pivot to the right of the pivot, and elements smaller than the pivot to the left of the pivot.
     * Repeats this partitioning and pivot step for every subarray until the subarray is size 1 (which is sorted by definition).
 * **Best Case Scenario**
-    * If the pivot pick is always the middle or near the middle element of the array/subarray.
+    * When the pivot pick is always the middle or near the middle element of the array/subarray.
 * **Worst Case Scenario**
-    * If the pivot picked is always the smallest or largest element of the array/subarray.
+    * When the pivot picked is always the smallest or largest element of the array/subarray.
 
 ### Heap Sort
 * **How It Works**
@@ -168,3 +165,13 @@ Additionally, I have only implemented the algorithms to sort integers.
     * When the array is already in ascending order (least comparisons).
 * **Worst Case Scenario**
     * When the array is in descending order (insertion sort worst case takes O(n<sup>2</sup>)).
+    
+### Timsort
+* **How It Works**
+    * Divide the array into parts called "runs". I set the runs to be 32 elements.
+    * Use insertion sort to sort each run.
+    * Use merge sort to merge each run.
+* **Best Case Scenario**
+    * When the given array is in ascending order.
+* **Worst Case Scenario**
+    * When the given array is in descending order.
