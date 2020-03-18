@@ -11,7 +11,7 @@ public class QuickSort {
      */
     public void quickSort(int[] arr, int p, int r) {
         if (p < r) {
-            int q = partition(arr, p, r);
+            int q = lomutoPartition(arr, p, r);
 //            int q = medianOfThreePartition(arr, p, r);
             quickSort(arr, p, q - 1);
             quickSort(arr, q + 1, r);
@@ -30,7 +30,7 @@ public class QuickSort {
      */
     public void tailRecursiveQuickSort(int[] arr, int p, int r) {
         while (p < r) {
-            int q = partition(arr, p, r);
+            int q = lomutoPartition(arr, p, r);
             tailRecursiveQuickSort(arr, p, q - 1);
             p = q + 1;
         }
@@ -44,7 +44,7 @@ public class QuickSort {
      * @param r   the end index of the array/subarray being sorted (also the used as the pivot element)
      * @return the index of the partition
      */
-    public int partition(int[] arr, int p, int r) {
+    public int lomutoPartition(int[] arr, int p, int r) {
         int x = arr[r];
         int i = p - 1;
 
