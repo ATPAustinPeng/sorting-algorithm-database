@@ -16,12 +16,15 @@ Below is a list of sorting algorithms I will be covering (in Java programming la
 
 
 ## Basic Info On Each Sorting Algorithm
-**Note**:
+**Notes**
 * All the information I cover here are based off my implementation of each sorting algorithm.
 * Some algorithms like in-place merge sort and stable quick sort will result in different time and space complexities as I have stated in the chart below.
 * There are too many variations of each sorting algorithm and I cannot possibly cover them all.
 * Additionally, I have only implemented the algorithms to sort integers.
 
+<br></br>
+
+**Definitions**
 - **Name**: the algorithm name
 - **O(n) worst case**: the time complexity of the worst case scenario and what the worst case is
 - **O(n) average case**: the time complexity of the average case scenario
